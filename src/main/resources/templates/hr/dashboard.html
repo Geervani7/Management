@@ -1,0 +1,84 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Employee Management System</title>
+
+<style>
+    body{
+  background: -webkit-linear-gradient(to right, lightblue, white,); 
+  background: linear-gradient(to right, lightblue, white); 
+  color: darkslateblue;
+	}
+	.container-fluid {
+	font-family: 'Times New Roman', Times, serif;
+	text-align: right;
+	padding:0 15px 0 10px;
+    font-size: 20px;	
+    }
+.container-fluid h1{
+	font-family: 'Times New Roman', Times, serif;
+	text-align: left;
+	font-size: 24px;
+	}
+.head{
+	font-size: 30px;
+	padding:0 20px 0 20px;		
+	}
+.lead{
+	font-size: 20px;
+	padding:0 20px 0 20px;
+	color:black;		
+	}
+button {
+    background-color: green;
+    color: white;
+    padding:7px;
+    border: 1px solid black;
+	margin-bottom: 10px;
+    border-radius:10px;
+	box-sizing: border-box;
+    margin: 7px 0;
+    font-size: 18px;
+    width:100px;
+    cursor: pointer;
+  }
+ .empedit{
+	 padding:0 20px 0 20px;
+ }
+	</style>
+  </head>
+  <nav>
+  <div class="container-fluid">
+    <h1>Employee Management System</h1>
+   
+            <a href="/hr/dashboard">Home</a>
+            <a href="/hr/employees">Employee Details</a>
+            <a href="/hr/login">Logout</a>
+  </div>
+</nav>
+<hr />
+          <h2 class="head">My Details</h2>
+          <hr />
+          <div class="lead">
+              <p>ID: <span th:text="${employee.id}"></span></p>
+              <p>Name: <span th:text="${employee.firstName + ' ' + employee.lastName}"></span></p>
+              <p>Email: <span th:text="${employee.email}"></span></p>
+              <p>Phone: <span th:text="${employee.contact}"></span></p>
+              <p>Address: <span th:text="${employee.address}"></span></p>
+              <p>BirthDate: <span th:text="${employee.birthDate}"></span></p>
+              <p>Gender: <span th:text="${employee.gender}"></span></p>
+              <p>Qualitification: <span th:text="${employee.qualification}"></span></p>
+          </div>    
+          <hr />
+          <div class="empedit">
+              <a href="/emp/edit"><button type="submit">Edit</button></a>
+          </div>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
