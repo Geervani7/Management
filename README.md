@@ -1,6 +1,6 @@
 # Management
 First we created a Database name as managementnew in Mysql using XAMPP phpmyadmin and run the java application in the Management using spring boot.
-Now,we can see the columns names in the database and then create the employee table with csv format import it into the database table
+Now,we can see the columns names in the database and then create the employee table with csv format import it into the database table employee.
 ![Database page](https://user-images.githubusercontent.com/121932305/215082001-a006f017-22a8-48cb-a1d3-4530df138157.jpg)
 In src/main/resources/templates/index.html ,we have given button as click here to continue which looks same as below picture.After login it will redirect to Emp login page.
 ![index page](https://user-images.githubusercontent.com/121932305/215082447-44bf82c2-f0cd-4bd9-a2b8-f384633e399c.jpg)
