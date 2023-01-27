@@ -8,7 +8,7 @@ The code for the below pages is located in src/main/resources/templates/emp.
 After submit the credentials of required employee it will redirect to emp dashboard there we can see the details of the employee(empdashboard.html) and clicking on edit option will redirect to next page editemployees(edit_emp.html)and clicking on home brings back to home page of emp dashboard and logout to emp login page.
 ![Emp pages](https://user-images.githubusercontent.com/121932305/215082471-049652af-a67a-48e9-9609-d834e2747446.jpg)
 The code for the below pages is located in src/main/resources/templates/hr.
-After submit the credentials of required hr admin it will redirect to hr dashboard there we can see the details of the hr(hrdashboard.html) and clicking on edit option will redirect to next page editemployees(edit_emp.html)and clicking on Employee deatisl hr can view all the employee details stored in the database and home brings back to home page of emp dashboard and logout to emp login page.
+After submit the credentials of required hr admin it will redirect to hr dashboard there we can see the details of the hr(hrdashboard.html) and clicking on edit option will redirect to next page editemployees(edit_emp.html)and clicking on Employee deatails hr can view all the employee details stored in the database and home brings back to home page of hr dashboard and logout to hr login page.
 ![Hr pages](https://user-images.githubusercontent.com/121932305/215082483-a2df0771-3ca0-4307-84bd-17d354eb027f.jpg)
 
 
