@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>calender</title>
+    <nav>
+  <div class="container-fluid">
+    <h1>Hr Management System</h1>
+    <h2>Calender for HR</h2>
+
+            <a href="/hr/dashboard">Home</a>
+            <a href="/hr/login">Logout</a>
+            
+  </div>
+  </div>
+</nav>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dycalendarjs@1.2.1/css/dycalendar.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <style>
+   @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Poppins&family=Roboto:wght@300&display=swap');
+*{
+margin:0;    
+padding:0;
+box-sizing:border-box;
+} 
+body{
+background: -webkit-linear-gradient(to right, lightblue, white,); 
+  background: linear-gradient(to right, lightblue, white);
+  display:flex;
+justify-content:center;
+align-items:center;
+height:800px;
+overflow:hidden;
+}
+
+.dycalendar {
+height:500px;
+width:500px;
+background: white;
+border-radius:20px;
+padding-bottom:25px;
+box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+ rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, 
+ rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.dycalendar table{
+margin:25px 15px 5px 5px;        
+}
+
+.dycalendar table tr:first-child td{
+ color:grey;
+}
+
+.dycalendar table td{
+height:45px;   
+width:45px;
+border-radius:5px;    
+font-size:20px;
+cursor:pointer;
+position:relative;
+top:10px;
+font-family: 'poppins', sans-serif;
+}
+
+
+.dycalendar table td:hover{
+background:rgba(192,192,192,0.3);
+transition:all .2s ease-out;
+}
+
+table{
+    border-spacing: 10px;
+}
+.dycalendar-month-container{font-size: 30px;}
+.dycalendar-prev-next-btn.next-btn, .prev-btn{
+    padding: 10px 20px;
+    background:none;
+    color:black;
+    border-radius:10px;
+    margin-top:-10px;
+    margin-left:10px;
+}
+
+.dycalendar .next-btn{
+ margin-right:10px;        
+}
+
+.dycalendar .dycalendar-today-date{
+background:none;      
+background:blue;
+border-radius:10px;
+color:white;
+}
+
+.dycalendar-header{
+position:relative;
+top:25px;
+font-family: 'poppins', sans-serif;
+}
+
+.container-fluid {
+	font-family: 'Times New Roman', Times, serif;
+	text-align: right;
+    font-size: 20px;
+    padding:10px 20px 700px 20px;	
+    }
+.container-fluid h1{
+	font-family: 'Times New Roman', Times, serif;
+	color: darkslateblue;
+	text-align: left;
+	font-size: 24px;
+	padding:20px 500px 20px 10px;
+	}
+.container-fluid h2{
+	font-family: 'Times New Roman', Times, serif;
+	color: darkslateblue;
+	text-align: left;
+	font-size: 20px;
+	padding:0px 300px 0px 10px;
+	}
+.container-fluid a{
+	color: blueviolet;
+	padding:0px 10px 0px 1px;
+	}
+</style>
+
+   <title></title>    
+</head>
+<body>  
+<form action="/hr/calender" method="post">
+<div class="container">
+    
+<div class="dycalendar" id="dycalendar"></div> 
+
+<div class="toggle-btn">
+</div>
+</div>
+</form>
+     
+<script src="https://cdn.jsdelivr.net/npm/dycalendarjs@1.2.1/js/dycalendar.js"></script>
+<script> let container = document.querySelector(".container");
+let toggleBtn = document.querySelector('.toggle-btn');
+
+dycalendar.draw({
+   target:'#dycalendar', 
+   dayformat: 'full', 
+   type: 'month', 
+   monthformat: 'full', 
+   highlighttoday: true, 
+   prevnextbutton: 'show'
+});  
+</script>
+</body>
+</html>

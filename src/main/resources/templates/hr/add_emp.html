@@ -29,7 +29,7 @@
 	color: blueviolet;
 	padding:0px 10px 0px 1px;
 	}
-.edit input {
+.add input {
 	padding: 10px;
 	width:300px;
 	border: 1px solid #535b63;
@@ -37,116 +37,123 @@
     border-radius:10px;
 	box-sizing: border-box;
 	}
-.edit label{
+.add label{
 	text-align:left;
 }
 .form1{
-    padding:0 70px 0 0;
+    padding:0 70px 0 70px;
     font-size: 20px;
 }
 .form2{
-    padding:0 72px 0 0;
+    padding:0 12px 0 0;
     font-size: 20px;
 }
 .form3{
-    padding:0 112px 0 0;
+    padding:0 72px 0 0;
     font-size: 20px;
 }
 .form4{
-    padding:0 111px 0 0;
+    padding:0 109px 0 70px;
     font-size: 20px;
 }
 .form5{
-    padding:0 95px 0 0;
+    padding:0 35px 0 0;
     font-size: 20px;
 }
 .form6{
-    padding:0 55px 0 0;
+    padding:0 15px 0 0;
     font-size: 20px;
 }
 .form7{
-    padding:0 56px 0 0;
+    padding:0 54px 0 70px;
     font-size: 20px;
 }
 .form8{
-    padding:0 85px 0 0;
+    padding:0 45px 0 0;
     font-size: 20px;
 }
 .form9{
-    padding:0 13px 0 0;
+    padding:0 11px 0 70px;
     font-size: 20px;
 }
 .form10{
-    padding:0 101px 0 0;
+    padding:0 41px 0 0;
+    font-size: 20px;
+}
+.form11{
+    padding:0 37px 0 0;
+    font-size: 20px;
+}
+.form12{
+    padding:0 103px 0 0px;
     font-size: 20px;
 }
 button {
     background-color: dodgerblue;
     color: white;
-    padding:7px; 
+    padding:7px;
     border: 1px solid black;
 	margin-bottom: 10px;
     border-radius:10px;
 	box-sizing: border-box;
     margin: 7px 0;
     font-size: 18px;
-    width:470px; 
+    width:200px; 
     cursor: pointer;
   }
 .alert-alert-danger{
 	color: darkcyan;
 }
+.empadd {
+  padding:0 0px 0 650px;
+}
     </style>
   </head>
- <body>
-  <nav>
-  <div class="container-fluid">
-    <div th:if="${role == 'EMPLOYEE'}">
-    <h1>Employee Management System</h1>
-    <h3>Edit Employee Details</h3>
-            <a href="/emp/dashboard">Home</a>
-            <a href="/emp/login">Logout</a>
-  </div>
-  </div>
-</nav>
+   <body>
 <nav>
   <div class="container-fluid">
   <div th:if="${role == 'HR'}">
     <h1>HR Management System</h1>
-     <h3>Edit Hr Details</h3>
+     <h3>Add Employee Details</h3>
             <a href="/hr/dashboard">Home</a>
-<!--            <a href="/hr/employees">Employee Details</a>-->
             <a href="/hr/login">Logout</a>
   </div>
   </div>
 </nav>
 <hr />
     
-            <form action="/emp/edit" method="post">
+            <form action="/hr/add" method="post">
               <div class="alert-alert-danger" th:if="${error != null}" th:text="${error}"></div>
                 <input type="hidden" name="id" th:value="${emp.id}" />
-                    <div class="edit">
-                    <label for="firstName" class="form1">First Name:</label>
-                    <input type="text"id="firstName"name="firstName"th:value="${emp.firstName}"/><br>
+                    <div class="add">
+                  <label for="firstName" class="form1">First Name:</label>
+                  <input type="text"id="firstName"name="firstName"/>
                   <label for="lastName"class="form2">Last Name:</label>
-                  <input type="text"id="lastName"name="lastName"th:value="${emp.lastName}"/><br>
+                  <input type="text"id="lastName"name="lastName"/>
                   <label for="email"class="form3">Email:</label>
-                  <input type="email"id="email"name="email"th:value="${emp.email}"/><br>
+                  <input type="email"id="email"name="email"/><br>
                   <label for="name"class="form4">Phone:</label>
-                  <input type="text"id="phone"name="contact"th:value="${emp.contact}"/><br>
+                  <input type="text"id="phone"name="contact"/>
                   <label for="name"class="form5">Address:</label>
-                  <input type="text"id="address"name="address"th:value="${emp.address}"/><br>
+                  <input type="text"id="address"name="address"/>
                   <label for="qualification"class="form6">Qualification:</label>
-                  <input type="text"id="qualification"name="qualification"th:value="${emp.qualification}"/><br>
+                  <input type="text"id="qualification"name="qualification"/><br>
                   <label for="dob"class="form7">Date of Birth:</label>
-                  <input type="text"id="dob"name="birthDate"th:value="${emp.birthDate}"/><br>
+                  <input type="text"id="dob"name="birthDate"/>
                   <label for="gender"class="form10">Gender:</label>
-                  <input type="text"id="gender"name="gender"th:value="${emp.gender}"/><br>
+                  <input type="text"id="gender"name="gender"/>
                   <label for="name"class="form8">Password:</label>
-                  <input type="password"id="password"name="password"th:value="${emp.password}"/><br>
+                  <input type="password"id="password"name="password"/><br>
                   <label for="name"class="form9">Confirm Password:</label>
-                  <input type="password"id="confirm_password"name="confirm_password"/><br>
-                  <button type="submit">Submit</button>
+                  <input type="password"id="confirm_password"/>
+                  <label for="text"class="form11">Role_id:</label>
+                  <input type="role"id="role"name="role_id"/>
+                  <label for="id" class="form12">Id:</label>
+                  <input type="text" id="id"name="id"/>
+               
+                     <div class="empadd">
+                         <button type="submit">Submit</button>
+                      </div> 
                 </div> 
                 </div>   
             </form>

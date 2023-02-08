@@ -46,5 +46,10 @@ public class EmployeeService implements IEmployeeService {
     public Employee findByEmail(String email) {
         return repo.findByEmail(email);
     }
+
+    @Override
+    public List<Employee> findAll() {
+        return repo.findAll();
+    }
     
 }

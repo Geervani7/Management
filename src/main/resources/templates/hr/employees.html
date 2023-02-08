@@ -24,13 +24,39 @@ table, th, td {
 	font-size: 24px;
 	color: darkslateblue;
 	}
+.container-fluid h3{ 
+ 	font-family: 'Times New Roman', Times, serif; 
+ 	text-align: left; 
+ 	font-size: 20px; 
+ 	color: darkslateblue; 
+ 	} 
+ .container-fluid a{
+	color: blueviolet;
+	padding:0px 10px 0px 1px;
+	}
+ button {
+    background-color: green;
+    color: white;
+    padding:7px;
+    border: 1px solid black;
+	margin-bottom: 10px;
+    border-radius:10px;
+	box-sizing: border-box;
+    margin: 7px 0;
+    font-size: 18px;
+    width:100px;
+    cursor: pointer;
+  }
+ .empadd{
+	 padding:0 20px 0 20px;
+ }
 </style>
   </head>
-
+  <body>
   <nav>
   <div class="container-fluid">
-    <h1>Employee Management System</h1>
-   
+    <h1>HR Management System</h1>
+    <h3>View all Employee Details</h3>
             <a href="/hr/dashboard">Home</a>
 <!--            <a href="/hr/employees">Employee Details</a>-->
             <a href="/hr/login">Logout</a>
@@ -61,8 +87,12 @@ table, th, td {
           </div>
           </tr>
         </table>
+        
+        <div class="empadd">
+              <a href="/hr/add"><button type="submit">Add</button></a>
+          </div>
 
-  <body>
+ 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"

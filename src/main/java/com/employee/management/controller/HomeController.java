@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.employee.management.model.Employee;
+import com.employee.management.model.UserRole;
 import com.employee.management.service.IEmployeeService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,7 +36,7 @@ public class HomeController {
     private String hrLogin() {
         return "hr/login";
     }
-
+  
     @GetMapping("/hr/dashboard")
     private String hrDashboard(Model model) {
         Employee e = (Employee) req.getSession().getAttribute("user");
@@ -52,7 +54,15 @@ public class HomeController {
         }
         return "emp/dashboard";
     }
+    @GetMapping("/emp/calender")
+    private String empcalender() {
+        return "emp/calender";
+    }
 
+    @GetMapping("/hr/calender")
+    private String hrcalender() {
+        return "hr/calender";
+    }
     @PostMapping("/hr/login")
     private String hrDashboard(String email, String password, Model model) {
         Employee e = employeeService.findByEmail(email);
@@ -100,7 +110,15 @@ public class HomeController {
         }
         return "emp/edit_emp";
     }
-
+    @GetMapping("/hr/add")
+    private String empadd(Model model, String role) {
+        Employee e = (Employee) req.getSession().getAttribute("user");
+        if (e != null) {
+            model.addAttribute("emp", e);
+            model.addAttribute("role", e.getRole().getName());
+        }
+        return "hr/add_emp";
+    }
     @GetMapping("hr/employees")
     private String employeeList(Model model){
         model.addAttribute("employees", employeeService.getAllEmployees());
@@ -110,7 +128,16 @@ public class HomeController {
     @PostMapping("/emp/edit")
     private String empEdit(
             Long id,
-            String firstName,String lastName,String email,String password,String contact,String qualification,String address,String birthDate,String gender,String confirm_password,
+            String firstName,
+            String lastName,
+            String email,
+            String password,
+            String contact,
+            String qualification,
+            String address,
+            String birthDate,
+            String gender,
+            String confirm_password,
             Model model) {
         Employee e = employeeService.getEmployee(id);
         if (password.equals(confirm_password)) {
@@ -135,5 +162,37 @@ public class HomeController {
             return "emp/edit_emp";
         }
     }
+    @PostMapping("/hr/add")
+	public String details(@RequestParam(name = "firstName", required = true) String firstName,
+			@RequestParam(name = "lastName", required = true) String lastName,
+			@RequestParam(name = "id", required = true) Long id,
+			@RequestParam(name = "email", required = true) String email, 
+			@RequestParam(name = "password", required = true) String password, 
+			@RequestParam(name = "contact", required = true) String contact,
+			@RequestParam(name = "qualification", required = true) String qualification,
+			@RequestParam(name = "address", required = true) String address,
+			@RequestParam(name = "birthDate", required = true) String birthDate,
+			@RequestParam(name = "gender", required = true) String gender,
+			@RequestParam(name = "role_id", required = true) UserRole role_id,	
+			String confirm_password,
+			Model model) {
+
+	 Employee employee = new Employee();
+	 if (password.equals(confirm_password))
+		employee.setId(id);
+	    employee.setAddress(address);
+		employee.setEmail(email);
+		employee.setFirstName(firstName);
+		employee.setLastName(lastName);
+		employee.setContact(contact);
+		employee.setPassword(password);
+		employee.setRole(role_id);
+		employee.setQualification(qualification);
+		employee.setGender(gender);
+		employee.setBirthDate(birthDate);
+		employeeService.saveEmployee(employee);
+		model.addAttribute("employees", employeeService.findAll());
+		return "/hr/employees";
+	}
 
 }
